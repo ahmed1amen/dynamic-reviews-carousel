@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Reviews Carousel</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>Customer Reviews</h1>
+            <p>Real Stories from Our Happy Patients</p>
+        </div>
+    </header>
+
+    <!-- Reviews Carousel Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loading" class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading reviews...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error hidden">
+                <p>Unable to load reviews. Please try again later.</p>
+                <button id="retry-btn" class="retry-btn">Retry</button>
+            </div>
+
+            <!-- Reviews Carousel -->
+            <div id="reviews-carousel" class="reviews-carousel hidden">
+                <div class="carousel-container">
+                    <div id="reviews-grid" class="reviews-grid">
+                        <!-- Reviews will be dynamically populated here -->
+                    </div>
+                </div>
+
+                <!-- Bottom Navigation -->
+                <div class="bottom-navigation">
+                    <div class="carousel-navigation">
+                        <button id="prev-btn" class="nav-btn prev-btn" aria-label="Previous reviews">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- Dots Navigation -->
+                        <div id="dots-container" class="dots-container">
+                            <!-- Dots will be dynamically populated -->
+                        </div>
+                        
+                        <button id="next-btn" class="nav-btn next-btn" aria-label="Next reviews">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="page-indicator-container">
+                        <span id="page-indicator" class="page-indicator">1 / 1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configuration Modal -->
+    <div id="config-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Google Places API Configuration</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>To use this reviews carousel, you need to configure your Google Places API credentials:</p>
+                <div class="form-group">
+                    <label for="api-key">Google Places API Key:</label>
+                    <input type="text" id="api-key" placeholder="Enter your API key">
+                    <small>Make sure both Google Maps JavaScript API and Places API are enabled in your Google Cloud Console</small>
+                </div>
+                <div class="form-group">
+                    <label for="place-id">Google Place ID:</label>
+                    <input type="text" id="place-id" placeholder="Enter your Place ID">
+                    <small>Use the <a href="https://developers.google.com/maps/documentation/places/web-service/place-id" target="_blank">Place ID Finder</a> to get your Place ID</small>
+                </div>
+                <div class="form-actions">
+                    <button id="save-config" class="btn-primary">Save & Load Reviews</button>
+                    <button id="demo-mode" class="btn-secondary">Use Demo Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/carousel.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
