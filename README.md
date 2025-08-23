@@ -14,7 +14,7 @@ A responsive, interactive reviews carousel that displays customer testimonials f
 
 ## 🚀 Live Demo
 
-Visit the live demo: [Dynamic Reviews Carousel](https://ahmed1amen.github.io/dynamic-reviews-carousel/)
+Visit the live demo: [Dynamic Reviews Carousel](https://dynamic-reviews-carousel.ahmedamen.com/)
 
 ## 📱 Responsive Layout
 
